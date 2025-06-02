@@ -56,6 +56,26 @@
       opacity: 1;
       transform: translateY(0);
     }
+        .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+      opacity: 0;
+    }
+    .accordion-content.open {
+      max-height: 1000px; /* Adjust as needed for content */
+      opacity: 1;
+    }
+    .accordion-button svg {
+        transition: transform 0.3s ease-in-out;
+    }
+    .accordion-button.open svg {
+        transform: rotate(180deg);
+    }
+    a {
+    text-decoration: underline !important;
+  }
+
   </style>
 <script type="importmap">
 {
@@ -107,10 +127,10 @@
         <p>Calle Juan Sebastián El Cano, 1</p>
         <p>Real Círculo de Labradores</p>
       </div>
-      <div class="mt-8 md:mt-10 text-sm md:text-base tracking-wider">
+      <!--<div class="mt-8 md:mt-10 text-sm md:text-base tracking-wider">
         <p>CONFIRMAR ASISTENCIA AL:</p>
         <a href="tel:629318451" class="text-wedding-gold hover:opacity-80 transition-opacity">629 31 84 51</a>
-      </div>
+      </div>-->
     </div>
   </section>
 
@@ -141,19 +161,19 @@
   <!-- Our Story Section -->
   <section id="our-story" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-green-dark text-wedding-cream" aria-labelledby="our-story-heading">
     <div class="max-w-3xl w-full">
-      <h2 id="our-story-heading" class="font-script text-5xl md:text-6xl mb-8">Nuestra Historia</h2>
+      <h2 id="our-story-heading" class="font-script text-5xl md:text-6xl mb-8">Nuestros orígenes, nuestro destino</h2>
       <div class="space-y-6 text-lg md:text-xl leading-relaxed text-left max-w-xl mx-auto">
         <p>
-          Todo comenzó en una tarde soleada de primavera, entre risas y cafés. Lo que empezó como una amistad casual, pronto floreció en algo mucho más profundo. Descubrimos que compartíamos sueños, pasiones y un amor por las pequeñas cosas de la vida.
+          Parece cosa del destino, ¿verdad? Aunque veníamos de mundos distintos, nuestros caminos convergieron de una forma preciosa, y ahora los recorremos de la mano. 
         </p>
         <p>
-          A través de aventuras, desafíos y innumerables momentos de felicidad, nuestro vínculo se ha fortalecido. Cada día juntos es un recordatorio de lo afortunados que somos de habernos encontrado.
+          Cada paso es una alegría, ya sea riendo con nuestras hijas y nietos, explorando nuevos lugares o simplemente saboreando la vida juntos. La vida, el viaje más maravilloso.
         </p>
         <p>
           Ahora, estamos listos para dar el siguiente paso en nuestro viaje, y no podríamos estar más felices de que sean testigos de nuestro amor y compromiso.
         </p>
       </div>
-      <img src="https://picsum.photos/seed/couplelove/600/400" alt="Maliqui y Luis sonriendo juntos" class="mt-10 mx-auto rounded-lg shadow-xl w-full max-w-md object-cover h-64 md:h-80"/>
+      <img src="images/ambos.webp" alt="Maliqui y Luis sonriendo juntos" class="mt-10 mx-auto rounded-lg shadow-xl w-full max-w-md object-cover h-64 md:h-80"/>
     </div>
   </section>
 
@@ -175,7 +195,7 @@
           <p class="text-lg">A continuación de la ceremonia.</p>
           <p class="text-lg"><strong>Lugar:</strong> Mismo lugar, salón adyacente.</p>
           <p class="text-lg">Únanse a nosotros para una noche de cena, baile y celebración.</p>
-          <p class="text-md mt-2"><strong>Código de vestimenta:</strong> Formal</p>
+          
           <img src="https://picsum.photos/seed/receptionparty/400/250" alt="Salón de recepción decorado para la fiesta" class="mt-4 rounded-md w-full object-cover h-48"/>
         </div>
       </div>
@@ -209,8 +229,28 @@
     </div>
   </section>
 
+  <!--14YearsLater Section -->
+  <section id="our-story" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream text-wedding-green-dark" aria-labelledby="event-details-heading">
+    <div class="max-w-3xl w-full">
+      <h2 id="our-story-heading" class="font-script text-2xl md:text-6xl mb-8">Después de casi 14 años...</h2>
+      <h2 id="our-story-heading" class="font-script text-5xl md:text-6xl mb-8">Ya iba siendo hora</h2>
+      <div class="space-y-6 text-lg md:text-xl leading-relaxed text-left max-w-xl mx-auto">
+        <p>
+          No somos unos chavales pero nuestros corazones están llenos de ilusión esperando este día tan especial. 
+        </p>
+        <p>
+          Echaremos mucho de menos a algunas personas muy entrañables que forjaron nuestra forma de ser y nuestros principios y nos transmitieron unos valores esenciales para afrontar la vida.
+        </p>
+        <p>
+          A aquellos que decidáis venir os estaremos siempre agradecidos por sumaros a esta fiesta que pretendemos os resulte amena y divertida.
+        </p>
+      </div>
+      <img src="images/ambos-feria.png" alt="Maliqui y Luis en la Feria" class="mt-10 mx-auto rounded-lg shadow-xl w-full max-w-md object-cover h-64 md:h-80"/>
+    </div>
+  </section>
+
   <!-- Accommodation Section -->
-  <section id="accommodation" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream text-wedding-green-dark" aria-labelledby="accommodation-heading">
+  <!--<section id="accommodation" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream text-wedding-green-dark" aria-labelledby="accommodation-heading">
     <div class="max-w-3xl w-full">
       <h2 id="accommodation-heading" class="font-script text-5xl md:text-6xl text-wedding-green-header mb-8">Alojamiento</h2>
       <p class="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-6">
@@ -240,29 +280,119 @@
       </div>
       <p class="text-md mt-8">Recomendamos reservar con antelación, especialmente si viajan en temporada alta.</p>
     </div>
-  </section>
+  </section>-->
 
-  <!-- RSVP Section -->
-  <section id="rsvp" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-green-dark text-wedding-cream" aria-labelledby="rsvp-heading">
+   <!-- RSVP Section -->
+  <section id="rsvp" class="py-16 md:py-24 px-6 md:px-12 min-h-[90vh] flex flex-col items-center justify-center text-center bg-wedding-green-dark text-wedding-cream fade-in-section" aria-labelledby="rsvp-heading">
     <div class="max-w-3xl w-full">
-      <h2 id="rsvp-heading" class="font-script text-5xl md:text-6xl mb-8">Confirma tu Asistencia</h2>
+      <h2 id="rsvp-heading" class="font-script text-5xl md:text-6xl text-wedding-cream mb-8">Confirma tu Asistencia</h2>
       <p class="text-lg md:text-xl leading-relaxed max-w-xl mx-auto mb-6">
-        Agradecemos que confirmes tu asistencia antes del <strong>15 de Agosto, 2025</strong>. 
-        Tu presencia es el mejor regalo para nosotros.
+        Agradecemos que confirmes tu asistencia antes del <strong>15 de Agosto, 2025</strong> utilizando el siguiente formulario. Tu presencia es el mejor regalo para nosotros.
       </p>
-      <p class="text-2xl md:text-3xl font-semibold mb-2">
-        Por favor, confirma llamando o enviando un mensaje a:
+      <div class="mt-8 mx-auto w-full max-w-2xl bg-wedding-cream p-1 sm:p-2 rounded-lg shadow-xl overflow-hidden">
+        <iframe 
+          src="https://forms.gle/LUMKxsbyZjyQj3aw6?embedded=true" 
+          width="100%" 
+          height="950"  
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0"
+          aria-label="Formulario de confirmación de asistencia"
+          loading="lazy"
+          title="Formulario RSVP">
+          Cargando…
+        </iframe>
+      </div>
+      <p class="mt-8 text-lg">
+        Si tienes alguna restricción alimentaria o necesitas alguna consideración especial, por favor indícalo en el formulario.
       </p>
-      <a 
-        href="tel:629318451" 
-        class="text-3xl md:text-4xl font-bold text-wedding-gold hover:opacity-80 transition-opacity duration-300 tracking-wider"
-      >
-        629 31 84 51
-      </a>
-      <p class="mt-6 text-lg">
-        Si tienes alguna restricción alimentaria o necesitas alguna consideración especial, por favor háznoslo saber al confirmar.
-      </p>
-      <img src="https://picsum.photos/seed/rsvpcontact/300/200" alt="Ilustración decorativa para contacto RSVP" class="mt-8 mx-auto rounded-lg opacity-70 w-full max-w-xs"/>
+    </div>
+    
+  <!-- Info Accordion Section -->
+  <section id="info-accordion" class="py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream fade-in-section" aria-labelledby="info-accordion-heading">
+    <div class="max-w-2xl w-full">
+      <h2 id="info-accordion-heading" class="font-script text-5xl md:text-6xl text-wedding-green-header mb-10">Información Adicional</h2>
+      <div class="space-y-4 text-left">
+        <!-- Accordion Item 1 -->
+        <div class="accordion-item border border-wedding-green-accent/30 rounded-lg shadow-sm overflow-hidden bg-white">
+          <button
+            class="accordion-button w-full flex justify-between items-center p-4 md:p-5 text-left text-wedding-green-dark hover:bg-wedding-green-accent/10 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-wedding-gold"
+            aria-expanded="false"
+            aria-controls="accordion-content-1"
+          >
+            <span class="text-lg md:text-xl font-semibold font-serif-body">¿Hay alguna lista de bodas?</span>
+            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="accordion-content-1" class="accordion-content">
+            <div class="p-4 md:p-5 border-t border-wedding-green-accent/20 text-wedding-green-dark leading-relaxed">
+              <p>Lo más importante para nosotros es celebrar este día con vosotros. Si además queréis tener un detalle, podéis ayudarnos a hacer realidad nuestra luna de miel</p>
+              <p class="mt-2 mb-1">
+                <code class="block text-center font-mono text-lg bg-wedding-green-accent/10 p-2 rounded text-wedding-green-header tracking-wider">ES2120801133813040108418</code>
+              </p>
+              <p class="mt-2 center">Muchas gracias</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 2 -->
+        <div class="accordion-item border border-wedding-green-accent/30 rounded-lg shadow-sm overflow-hidden bg-white">
+          <button
+            class="accordion-button w-full flex justify-between items-center p-4 md:p-5 text-left text-wedding-green-dark hover:bg-wedding-green-accent/10 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-wedding-gold"
+            aria-expanded="false"
+            aria-controls="accordion-content-2"
+          >
+            <span class="text-lg md:text-xl font-semibold font-serif-body">Alojamiento para nuestros invitados de fuera de Sevilla.</span>
+            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="accordion-content-2" class="accordion-content">
+            <div class="p-4 md:p-5 border-t border-wedding-green-accent/20 text-wedding-green-dark leading-relaxed">
+              <p>Para los que vengáis de fuera de la ciudad encontraréis una gran oferta de todo tipo de alojamientos en esta ciudad tan visitada y turística.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Accordion Item 3 -->
+        <div class="accordion-item border border-wedding-green-accent/30 rounded-lg shadow-sm overflow-hidden bg-white">
+          <button
+            class="accordion-button w-full flex justify-between items-center p-4 md:p-5 text-left text-wedding-green-dark hover:bg-wedding-green-accent/10 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-wedding-gold"
+            aria-expanded="false"
+            aria-controls="accordion-content-3"
+          >
+            <span class="text-lg md:text-xl font-semibold font-serif-body">¿Habrá comida para personas vegetarianas o con alguna intolerancia?</span>
+            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="accordion-content-3" class="accordion-content">
+            <div class="p-4 md:p-5 border-t border-wedding-green-accent/20 text-wedding-green-dark leading-relaxed">
+              <p>En caso de que así sea háznoslo saber cuando confirmes tu asistencia, mediante un whatsapp.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 4 -->
+        <div class="accordion-item border border-wedding-green-accent/30 rounded-lg shadow-sm overflow-hidden bg-white">
+          <button
+            class="accordion-button w-full flex justify-between items-center p-4 md:p-5 text-left text-wedding-green-dark hover:bg-wedding-green-accent/10 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-wedding-gold"
+            aria-expanded="false"
+            aria-controls="accordion-content-4"
+          >
+            <span class="text-lg md:text-xl font-semibold font-serif-body">¿Cómo llegar?</span>
+            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="accordion-content-4" class="accordion-content">
+            <div class="p-4 md:p-5 border-t border-wedding-green-accent/20 text-wedding-green-dark leading-relaxed">
+              <p>Tanto la ceremonia como la celebración son en el <a href="https://maps.app.goo.gl/yKrzHfKyHAEEx3Wp7">mismo lugar.</a> <p>Puedes llegar en taxi/vtc hasta la misma puerta.</p> <p>En metro la parada más cercana es Plaza de Cuba.</p> <p>Si decides venir en vehículo propio lo mejor es utilizar el parking público subterráneo de Plaza de Cuba.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -335,6 +465,44 @@
           heroSection.appendChild(speckle);
         }
       }
+      // Accordion Logic
+      const accordionItems = document.querySelectorAll('.accordion-item');
+      let openAccordion = null;
+
+      accordionItems.forEach(item => {
+        const button = item.querySelector('.accordion-button');
+        const content = item.querySelector('.accordion-content');
+        const contentId = content.id;
+
+        button.setAttribute('aria-controls', contentId);
+
+        button.addEventListener('click', () => {
+          const isCurrentlyOpen = button.classList.contains('open');
+
+          // Close previously open accordion if it exists and is not the current one
+          if (openAccordion && openAccordion !== item) {
+            const prevButton = openAccordion.querySelector('.accordion-button');
+            const prevContent = openAccordion.querySelector('.accordion-content');
+            prevButton.classList.remove('open');
+            prevButton.setAttribute('aria-expanded', 'false');
+            prevContent.classList.remove('open');
+          }
+          
+          // Toggle current accordion
+          if (isCurrentlyOpen) {
+            button.classList.remove('open');
+            button.setAttribute('aria-expanded', 'false');
+            content.classList.remove('open');
+            openAccordion = null;
+          } else {
+            button.classList.add('open');
+            button.setAttribute('aria-expanded', 'true');
+            content.classList.add('open');
+            openAccordion = item;
+          }
+        });
+      });
+    
     });
   </script>
 
