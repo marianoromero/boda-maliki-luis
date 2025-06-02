@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maliqui & Luis Wedding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'wedding-cream': '#EFFEFE',
+            'wedding-green-dark': '#3CA6A6',
+            'wedding-green-header': '#024959',
+            'wedding-green-accent': '#026773',
+            'wedding-gold': '#3CA6A6', // Note: This is a teal color from your config
+          },
+          fontFamily: {
+            'script': ['Parisienne', 'cursive'],
+            'serif-body': ['"Cormorant Garamond"', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      overscroll-behavior-y: none;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #EFFEFE; /* wedding-cream */
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #026773; /* wedding-green-accent */
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #024959; /* wedding-green-header */
+    }
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(2.5rem); /* Corresponds to Tailwind's translate-y-10 */
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Default duration-1000 */
+    }
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-wedding-cream text-wedding-green-dark font-serif-body min-h-screen overflow-x-hidden">
+
+  <!-- Hero Section -->
+  <section 
+    id="hero"
+    class="hero-section-target min-h-screen flex flex-col items-center justify-center text-center py-10 px-4 relative overflow-hidden bg-cover bg-center bg-fixed"
+    style="background-image: url('https://www.visitanddo.com/wp-content/uploads/2024/01/torre-del-oro-de-sevilla.jpg?blur=1');"
+    aria-labelledby="hero-title"
+  >
+    <div class="absolute inset-0 bg-black opacity-30 z-0"></div>
+    <!-- Gold speckles will be added here by JS -->
+    <div class="relative z-10 w-full max-w-2xl text-wedding-cream">
+      <div class="mt-8 md:mt-12">
+        <h1 id="hero-title" class="font-script text-7xl md:text-9xl leading-tight">
+          Maliqui
+        </h1>
+        <span class="font-script text-5xl md:text-7xl" aria-hidden="true">&amp;</span>
+        <h1 class="font-script text-7xl md:text-9xl leading-tight mt-[-1rem] md:mt-[-2rem]">
+          Luis
+        </h1>
+      </div>
+      <p class="mt-8 md:mt-10 text-lg md:text-xl tracking-wider uppercase font-serif-body">
+        Es un honor invitarte a la celebración de nuestra boda
+      </p>
+      <div class="mt-10 md:mt-12 font-serif-body">
+        <div class="text-2xl md:text-3xl tracking-widest">SEP</div>
+        <div class="flex items-center justify-center space-x-4 md:space-x-8 my-3 md:my-4">
+          <span class="text-base md:text-lg uppercase tracking-wider mr-4 md:mr-0">Sábado</span>
+          <div class="flex-grow h-px bg-wedding-cream opacity-70"></div>
+          <span class="text-6xl md:text-8xl font-bold">13</span>
+          <div class="flex-grow h-px bg-wedding-cream opacity-70"></div>
+          <span class="text-base md:text-lg uppercase tracking-wider ml-4 md:ml-0">19:00 Hrs.</span>
+        </div>
+        <div class="text-2xl md:text-3xl tracking-widest">2025</div>
+      </div>
+      <div class="mt-8 md:mt-10 text-base md:text-lg">
+        <p>Calle Juan Sebastián El Cano, 1</p>
+        <p>Real Círculo de Labradores</p>
+      </div>
+      <div class="mt-8 md:mt-10 text-sm md:text-base tracking-wider">
+        <p>CONFIRMAR ASISTENCIA AL:</p>
+        <a href="tel:629318451" class="text-wedding-gold hover:opacity-80 transition-opacity">629 31 84 51</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scroll Down Indicator -->
+  <div id="scroll-indicator" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center animate-bounce" aria-hidden="true">
+    <span class="text-xs text-wedding-cream mb-1">Scroll</span>
+    <svg class="w-6 h-6 text-wedding-cream" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+      <path d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </div>
+
+  <!-- Welcome Section -->
+  <section id="welcome" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream text-wedding-green-dark" aria-labelledby="welcome-heading">
+    <div class="max-w-3xl w-full">
+      <h2 id="welcome-heading" class="font-script text-5xl md:text-6xl text-wedding-green-header mb-6">¡Bienvenidos!</h2>
+      <p class="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+        Con corazones llenos de alegría, les damos la bienvenida a este espacio dedicado a nuestro día especial. Estamos emocionados de compartir este capítulo de nuestras vidas con ustedes, nuestros queridos familiares y amigos.
+      </p>
+      <p class="text-lg md:text-xl leading-relaxed mt-4 max-w-2xl mx-auto">
+        Aquí encontrarán todos los detalles sobre la celebración, nuestra historia y más. ¡Esperamos verlos pronto!
+      </p>
+      <div class="mt-8 text-3xl font-script text-wedding-green-header">
+        Maliqui & Luis
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section id="our-story" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-green-dark text-wedding-cream" aria-labelledby="our-story-heading">
+    <div class="max-w-3xl w-full">
+      <h2 id="our-story-heading" class="font-script text-5xl md:text-6xl mb-8">Nuestra Historia</h2>
+      <div class="space-y-6 text-lg md:text-xl leading-relaxed text-left max-w-xl mx-auto">
+        <p>
+          Todo comenzó en una tarde soleada de primavera, entre risas y cafés. Lo que empezó como una amistad casual, pronto floreció en algo mucho más profundo. Descubrimos que compartíamos sueños, pasiones y un amor por las pequeñas cosas de la vida.
+        </p>
+        <p>
+          A través de aventuras, desafíos y innumerables momentos de felicidad, nuestro vínculo se ha fortalecido. Cada día juntos es un recordatorio de lo afortunados que somos de habernos encontrado.
+        </p>
+        <p>
+          Ahora, estamos listos para dar el siguiente paso en nuestro viaje, y no podríamos estar más felices de que sean testigos de nuestro amor y compromiso.
+        </p>
+      </div>
+      <img src="https://picsum.photos/seed/couplelove/600/400" alt="Maliqui y Luis sonriendo juntos" class="mt-10 mx-auto rounded-lg shadow-xl w-full max-w-md object-cover h-64 md:h-80"/>
+    </div>
+  </section>
+
+  <!-- Event Details Section -->
+  <section id="event-details" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream text-wedding-green-dark" aria-labelledby="event-details-heading">
+    <div class="max-w-3xl w-full">
+      <h2 id="event-details-heading" class="font-script text-5xl md:text-6xl text-wedding-green-header mb-10">Detalles del Evento</h2>
+      <div class="grid md:grid-cols-2 gap-10 max-w-3xl mx-auto text-wedding-green-dark">
+        <div class="bg-white p-6 rounded-lg shadow-lg border border-wedding-green-accent/30 text-left md:text-center">
+          <h3 class="font-serif-body text-3xl font-semibold text-wedding-green-header mb-3">Ceremonia</h3>
+          <p class="text-lg"><strong>Fecha:</strong> Sábado, 13 de Septiembre, 2025</p>
+          <p class="text-lg"><strong>Hora:</strong> 19:00 HRS.</p>
+          <p class="text-lg"><strong>Lugar:</strong> Real Círculo de Labradores</p>
+          <p class="text-lg">Calle Juan Sebastián El Cano, 1, Sevilla</p>
+          <img src="https://picsum.photos/seed/ceremonyplace/400/250" alt="Lugar de la ceremonia - Real Círculo de Labradores" class="mt-4 rounded-md w-full object-cover h-48"/>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg border border-wedding-green-accent/30 text-left md:text-center">
+          <h3 class="font-serif-body text-3xl font-semibold text-wedding-green-header mb-3">Recepción</h3>
+          <p class="text-lg">A continuación de la ceremonia.</p>
+          <p class="text-lg"><strong>Lugar:</strong> Mismo lugar, salón adyacente.</p>
+          <p class="text-lg">Únanse a nosotros para una noche de cena, baile y celebración.</p>
+          <p class="text-md mt-2"><strong>Código de vestimenta:</strong> Formal</p>
+          <img src="https://picsum.photos/seed/receptionparty/400/250" alt="Salón de recepción decorado para la fiesta" class="mt-4 rounded-md w-full object-cover h-48"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-green-dark text-wedding-cream" aria-labelledby="gallery-heading">
+    <div class="max-w-4xl w-full">
+      <h2 id="gallery-heading" class="font-script text-5xl md:text-6xl mb-10">Nuestros Momentos</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 mx-auto">
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105">
+          <img src="https://picsum.photos/seed/gallery1/400/400" alt="Momento feliz de Maliqui y Luis 1" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105">
+          <img src="https://picsum.photos/seed/gallery2/400/400" alt="Momento feliz de Maliqui y Luis 2" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105">
+          <img src="https://picsum.photos/seed/gallery3/400/400" alt="Momento feliz de Maliqui y Luis 3" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105">
+          <img src="https://picsum.photos/seed/gallery4/400/400" alt="Momento feliz de Maliqui y Luis 4" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105">
+          <img src="https://picsum.photos/seed/gallery5/400/400" alt="Momento feliz de Maliqui y Luis 5" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105">
+          <img src="https://picsum.photos/seed/gallery6/400/400" alt="Momento feliz de Maliqui y Luis 6" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accommodation Section -->
+  <section id="accommodation" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream text-wedding-green-dark" aria-labelledby="accommodation-heading">
+    <div class="max-w-3xl w-full">
+      <h2 id="accommodation-heading" class="font-script text-5xl md:text-6xl text-wedding-green-header mb-8">Alojamiento</h2>
+      <p class="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-6">
+        Para nuestros invitados que viajan desde fuera, hemos recopilado algunas sugerencias de hoteles cercanos al lugar del evento. Sevilla ofrece una amplia variedad de opciones para todos los gustos y presupuestos.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto text-wedding-green-dark text-left">
+        <div class="bg-white p-4 rounded-lg shadow-md border border-wedding-green-accent/20">
+          <h3 class="text-xl font-semibold text-wedding-green-header mb-1">Hotel Alfonso XIII</h3>
+          <p class="text-sm">Un hotel de lujo con historia, a poca distancia.</p>
+          <a href="#" class="text-wedding-gold hover:underline text-sm block mt-1" target="_blank" rel="noopener noreferrer">Ver disponibilidad</a>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-md border border-wedding-green-accent/20">
+          <h3 class="text-xl font-semibold text-wedding-green-header mb-1">Hotel Colón Gran Meliá</h3>
+          <p class="text-sm">Elegancia y confort en el corazón de Sevilla.</p>
+          <a href="#" class="text-wedding-gold hover:underline text-sm block mt-1" target="_blank" rel="noopener noreferrer">Ver disponibilidad</a>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-md border border-wedding-green-accent/20">
+          <h3 class="text-xl font-semibold text-wedding-green-header mb-1">Hotel Doña María</h3>
+          <p class="text-sm">Vistas espectaculares y encanto tradicional.</p>
+          <a href="#" class="text-wedding-gold hover:underline text-sm block mt-1" target="_blank" rel="noopener noreferrer">Ver disponibilidad</a>
+        </div>
+         <div class="bg-white p-4 rounded-lg shadow-md border border-wedding-green-accent/20">
+          <h3 class="text-xl font-semibold text-wedding-green-header mb-1">Opciones Boutique</h3>
+          <p class="text-sm">Explore encantadores hoteles boutique en el barrio de Santa Cruz.</p>
+          <a href="#" class="text-wedding-gold hover:underline text-sm block mt-1" target="_blank" rel="noopener noreferrer">Buscar en Booking.com</a>
+        </div>
+      </div>
+      <p class="text-md mt-8">Recomendamos reservar con antelación, especialmente si viajan en temporada alta.</p>
+    </div>
+  </section>
+
+  <!-- RSVP Section -->
+  <section id="rsvp" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-green-dark text-wedding-cream" aria-labelledby="rsvp-heading">
+    <div class="max-w-3xl w-full">
+      <h2 id="rsvp-heading" class="font-script text-5xl md:text-6xl mb-8">Confirma tu Asistencia</h2>
+      <p class="text-lg md:text-xl leading-relaxed max-w-xl mx-auto mb-6">
+        Agradecemos que confirmes tu asistencia antes del <strong>15 de Agosto, 2025</strong>. 
+        Tu presencia es el mejor regalo para nosotros.
+      </p>
+      <p class="text-2xl md:text-3xl font-semibold mb-2">
+        Por favor, confirma llamando o enviando un mensaje a:
+      </p>
+      <a 
+        href="tel:629318451" 
+        class="text-3xl md:text-4xl font-bold text-wedding-gold hover:opacity-80 transition-opacity duration-300 tracking-wider"
+      >
+        629 31 84 51
+      </a>
+      <p class="mt-6 text-lg">
+        Si tienes alguna restricción alimentaria o necesitas alguna consideración especial, por favor háznoslo saber al confirmar.
+      </p>
+      <img src="https://picsum.photos/seed/rsvpcontact/300/200" alt="Ilustración decorativa para contacto RSVP" class="mt-8 mx-auto rounded-lg opacity-70 w-full max-w-xs"/>
+    </div>
+  </section>
+
+  <!-- Final Words Section -->
+  <section id="final-words" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream text-wedding-green-dark" aria-labelledby="final-words-heading">
+    <div class="max-w-3xl w-full">
+      <h2 id="final-words-heading" class="font-script text-5xl md:text-6xl text-wedding-green-header mb-6">¡Nos Vemos Pronto!</h2>
+      <p class="text-lg md:text-xl leading-relaxed max-w-xl mx-auto mb-8">
+        Estamos contando los días para celebrar este momento tan especial con todos ustedes. Su cariño y apoyo significan el mundo para nosotros.
+      </p>
+      <p class="text-2xl font-script text-wedding-green-header">
+        Con todo nuestro amor,
+      </p>
+      <p class="text-4xl font-script text-wedding-green-header mt-2">
+        Maliqui &amp; Luis
+      </p>
+      <div class="mt-12 border-t border-wedding-green-accent pt-6 text-xs text-wedding-green-accent">
+        <p>&copy; 2025 Maliqui & Luis. Todos los derechos reservados.</p>
+        <p>Diseño web inspirado con cariño.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Fade-in sections on scroll
+      const fadeInElements = document.querySelectorAll('.fade-in-section');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      fadeInElements.forEach(el => observer.observe(el));
+
+      // Scroll down indicator visibility
+      const scrollIndicator = document.getElementById('scroll-indicator');
+      if (scrollIndicator) {
+        const handleScroll = () => {
+          if (window.scrollY > 100) {
+            scrollIndicator.style.display = 'none';
+          } else {
+            scrollIndicator.style.display = 'flex';
+          }
+        };
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial check
+      }
+
+      // Hero section gold speckles
+      const heroSection = document.querySelector('.hero-section-target');
+      if (heroSection) {
+        const numSpeckles = 15;
+        for (let i = 0; i < numSpeckles; i++) {
+          const speckle = document.createElement('div');
+          // Tailwind color 'wedding-gold' is #3CA6A6 (a teal) as per your config.
+          // If you intended a metallic gold, you'd change this in tailwind.config.
+          speckle.className = 'absolute bg-wedding-gold rounded-full z-1';
+          speckle.style.width = `${Math.random() * 3 + 1}px`;
+          speckle.style.height = `${Math.random() * 3 + 1}px`;
+          speckle.style.top = `${Math.random() * 100}%`;
+          speckle.style.left = `${Math.random() * 100}%`;
+          speckle.style.opacity = Math.random() * 0.5 + 0.3;
+          // Ensure speckles are appended to a direct child that doesn't mess with flex layout if hero is flex.
+          // Appending to heroSection itself is fine if it's just a container.
+          // For safety, if heroSection's direct children are specific, consider appending to the overlay or another dedicated container.
+          // Given the current structure, appending to heroSection (which is relative) is okay.
+          heroSection.appendChild(speckle);
+        }
+      }
+    });
+  </script>
+
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
