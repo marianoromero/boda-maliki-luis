@@ -1,6 +1,6 @@
 {
-  "name": "Enchanting Scroll Wedding Invitation",
-  "description": "A beautiful, full-screen, infinite scrolling wedding invitation webpage, replicating an elegant floral design. Sections for event details, story, gallery, and RSVP appear as the user scrolls.",
+  "name": "Enchanting Scroll Wedding Invitation - Static HTML",
+  "description": "A beautiful, full-screen, single-page static HTML wedding invitation, replicating an elegant floral design. Sections for event details, story, gallery, and RSVP appear as the user scrolls. Includes interactive accordion for additional information.",
   "requestFramePermissions": [],
   "prompt": ""
 }

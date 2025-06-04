@@ -1,0 +1,129 @@
+html { scroll-behavior: smooth; }
+body { overscroll-behavior-y: none; margin: 0; padding: 0; box-sizing: border-box; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #F2E3D5; } /* A slightly different cream for contrast, or use wedding-cream if preferred */
+::-webkit-scrollbar-thumb { background: #026773; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #024959; }
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+.accordion-content.open {
+  max-height: 1000px; /* Adjust if content is taller */
+  opacity: 1;
+}
+.accordion-button svg {
+    transition: transform 0.3s ease-in-out;
+}
+.accordion-button.open svg {
+    transform: rotate(180deg);
+}
+
+/* Gallery Modal Styles */
+.body-no-scroll {
+  overflow: hidden;
+}
+.gallery-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  /* MODIFIED TRANSITION: Only transition opacity. Visibility changes will be instant. */
+  transition: opacity 0.3s ease-in-out;
+  padding: 1rem;
+}
+.gallery-modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+.gallery-modal-content-wrapper {
+  position: relative;
+  background-color: #fff; /* Using white for modal background for now */
+  border-radius: 0.5rem; /* Tailwind: rounded-lg */
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); /* Tailwind: shadow-xl */
+  max-width: 60rem; /* Adjust as needed, corresponds to Tailwind's max-w-6xl roughly */
+  width: auto; /* Allow it to shrink for smaller images */
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem; /* Tailwind: p-2 */
+}
+#modal-image {
+  max-width: 100%;
+  max-height: calc(90vh - 60px); /* Reserve space for controls if they were inside */
+  object-fit: contain;
+  display: block;
+  border-radius: 0.25rem; /* Tailwind: rounded-md */
+}
+.modal-btn {
+  position: absolute;
+  background-color: rgba(30, 30, 30, 0.6);
+  color: white;
+  border: none;
+  border-radius: 9999px; /* Tailwind: rounded-full */
+  cursor: pointer;
+  z-index: 1001; /* Above image container, below content wrapper if needed for specific layouts */
+  padding: 0.75rem; /* Tailwind: p-3 */
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.modal-close-btn {
+  top: -15px; /* Position outside and above the content wrapper slightly */
+  right: -15px;
+  /* Using Tailwind classes for size, or define explicitly */
+  width: 36px; /* Corresponds to h-9 w-9 approx */
+  height: 36px;
+  font-size: 1.25rem; /* Tailwind: text-xl */
+}
+ .modal-close-btn svg {
+  width: 1.5rem; /* Tailwind: w-6 */
+  height: 1.5rem; /* Tailwind: h-6 */
+}
+.modal-nav-btn {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px; /* Adjust size */
+  height: 44px;
+}
+.modal-nav-btn svg {
+  width: 1.75rem; /* Tailwind: w-7 */
+  height: 1.75rem; /* Tailwind: h-7 */
+}
+.modal-nav-btn.prev {
+  left: 10px; /* Position from the edge of the viewport or modal content wrapper */
+}
+.modal-nav-btn.next {
+  right: 10px; /* Position from the edge of the viewport or modal content wrapper */
+}
+/* Ensure gallery items are clickable */
+.gallery-item-clickable {
+    cursor: pointer;
+}

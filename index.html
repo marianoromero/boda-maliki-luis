@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <script>
     tailwind.config = {
       theme: {
@@ -17,7 +18,7 @@
             'wedding-green-dark': '#3CA6A6',
             'wedding-green-header': '#024959',
             'wedding-green-accent': '#026773',
-            'wedding-gold': '#3CA6A6', // Note: This is a teal color from your config
+            'wedding-gold': '#3CA6A6', 
           },
           fontFamily: {
             'script': ['Parisienne', 'cursive'],
@@ -27,84 +28,26 @@
       }
     }
   </script>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      overscroll-behavior-y: none;
-    }
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #EFFEFE; /* wedding-cream */
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #026773; /* wedding-green-accent */
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #024959; /* wedding-green-header */
-    }
-    .fade-in-section {
-      opacity: 0;
-      transform: translateY(2.5rem); /* Corresponds to Tailwind's translate-y-10 */
-      transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Default duration-1000 */
-    }
-    .fade-in-section.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-        .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-      opacity: 0;
-    }
-    .accordion-content.open {
-      max-height: 1000px; /* Adjust as needed for content */
-      opacity: 1;
-    }
-    .accordion-button svg {
-        transition: transform 0.3s ease-in-out;
-    }
-    .accordion-button.open svg {
-        transform: rotate(180deg);
-    }
-    a {
-    text-decoration: underline !important;
-  }
-
-  </style>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.1.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
-    "react/": "https://esm.sh/react@^19.1.0/"
-  }
-}
-</script>
 <link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-wedding-cream text-wedding-green-dark font-serif-body min-h-screen overflow-x-hidden">
 
   <!-- Hero Section -->
   <section 
-    id="hero"
-    class="hero-section-target min-h-screen flex flex-col items-center justify-center text-center py-10 px-4 relative overflow-hidden bg-cover bg-center bg-fixed"
-    style="background-image: url('https://www.visitanddo.com/wp-content/uploads/2024/01/torre-del-oro-de-sevilla.jpg?blur=1');"
-    aria-labelledby="hero-title"
+    id="hero-section-speckles-container"
+    class="min-h-screen flex flex-col items-center justify-center text-center py-10 px-4 relative overflow-hidden bg-cover bg-center bg-fixed"
+    style="background-image: url('images/torre-oleo.png');"
+    aria-labelledby="hero-heading"
   >
     <div class="absolute inset-0 bg-black opacity-30 z-0"></div>
-    <!-- Gold speckles will be added here by JS -->
+    <!-- Speckles will be added by script.js -->
+    
     <div class="relative z-10 w-full max-w-2xl text-wedding-cream">
       <div class="mt-8 md:mt-12">
-        <h1 id="hero-title" class="font-script text-7xl md:text-9xl leading-tight">
+        <h1 id="hero-heading" class="font-script text-7xl md:text-9xl leading-tight">
           Maliqui
         </h1>
-        <span class="font-script text-5xl md:text-7xl" aria-hidden="true">&amp;</span>
+        <span class="font-script text-5xl md:text-7xl">&amp;</span>
         <h1 class="font-script text-7xl md:text-9xl leading-tight mt-[-1rem] md:mt-[-2rem]">
           Luis
         </h1>
@@ -128,14 +71,13 @@
         <p>Real Círculo de Labradores</p>
       </div>
       <!--<div class="mt-8 md:mt-10 text-sm md:text-base tracking-wider">
-        <p>CONFIRMAR ASISTENCIA AL:</p>
-        <a href="tel:629318451" class="text-wedding-gold hover:opacity-80 transition-opacity">629 31 84 51</a>
+        <p>CONFIRMAR ASISTENCIA (VER SECCIÓN RSVP)</p>
       </div>-->
     </div>
   </section>
 
   <!-- Scroll Down Indicator -->
-  <div id="scroll-indicator" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center animate-bounce" aria-hidden="true">
+  <div id="scroll-down-indicator" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center animate-bounce" aria-hidden="true">
     <span class="text-xs text-wedding-cream mb-1">Scroll</span>
     <svg class="w-6 h-6 text-wedding-cream" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
       <path d="M19 9l-7 7-7-7"></path>
@@ -143,13 +85,13 @@
   </div>
 
   <!-- Welcome Section -->
-  <section id="welcome" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream text-wedding-green-dark" aria-labelledby="welcome-heading">
+  <section id="welcome" class="py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream fade-in-section" aria-labelledby="welcome-heading">
     <div class="max-w-3xl w-full">
       <h2 id="welcome-heading" class="font-script text-5xl md:text-6xl text-wedding-green-header mb-6">¡Bienvenidos!</h2>
-      <p class="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+      <p class="text-lg md:text-xl leading-relaxed text-wedding-green-dark max-w-2xl mx-auto">
         Con corazones llenos de alegría, les damos la bienvenida a este espacio dedicado a nuestro día especial. Estamos emocionados de compartir este capítulo de nuestras vidas con ustedes, nuestros queridos familiares y amigos.
       </p>
-      <p class="text-lg md:text-xl leading-relaxed mt-4 max-w-2xl mx-auto">
+      <p class="text-lg md:text-xl leading-relaxed text-wedding-green-dark mt-4 max-w-2xl mx-auto">
         Aquí encontrarán todos los detalles sobre la celebración, nuestra historia y más. ¡Esperamos verlos pronto!
       </p>
       <div class="mt-8 text-3xl font-script text-wedding-green-header">
@@ -158,13 +100,95 @@
     </div>
   </section>
 
-  <!-- Our Story Section -->
-  <section id="our-story" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-green-dark text-wedding-cream" aria-labelledby="our-story-heading">
+  <!-- Our Origins, Our Destiny Section (Formerly Our Story) -->
+  <section id="our-story" class="py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-green-dark text-wedding-cream fade-in-section" aria-labelledby="our-origins-heading">
     <div class="max-w-3xl w-full">
-      <h2 id="our-story-heading" class="font-script text-5xl md:text-6xl mb-8">Nuestros orígenes, nuestro destino</h2>
-      <div class="space-y-6 text-lg md:text-xl leading-relaxed text-left max-w-xl mx-auto">
+      <h2 id="our-origins-heading" class="font-script text-5xl md:text-6xl text-wedding-cream mb-8">Nuestros orígenes, nuestro destino</h2>
+      <div class="space-y-6 text-lg md:text-xl leading-relaxed max-w-xl mx-auto">
         <p>
-          Parece cosa del destino, ¿verdad? Aunque veníamos de mundos distintos, nuestros caminos convergieron de una forma preciosa, y ahora los recorremos de la mano. 
+          No somos unos chavales pero nuestros corazones están llenos de ilusión esperando este día tan especial.
+        </p>
+        <p>
+          Echaremos mucho de menos a algunas personas muy entrañables que forjaron nuestra forma de ser y nuestros principios y nos transmitieron unos valores esenciales para afrontar la vida.
+        </p>
+        <p>
+          A aquellos que 14decidáis venir os estaremos siempre agradecidos por sumaros a esta fiesta que pretendemos os resulte amena y divertida.
+        </p>
+      </div>
+      </div>
+      <img src="images/ambos.webp" alt="Maliqui y Luis sonriendo juntos" class="mt-10 mx-auto rounded-lg shadow-xl w-full max-w-md object-cover h-64 md:h-80"/>
+    </div>
+    </div>
+  </section>
+
+  <!-- Event Details Section -->
+  <section id="event-details" class="py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream fade-in-section" aria-labelledby="event-details-heading">
+    <div class="max-w-3xl w-full">
+      <h2 id="event-details-heading" class="font-script text-5xl md:text-6xl text-wedding-green-header mb-10">Detalles del Evento</h2>
+      <div class="grid md:grid-cols-2 gap-10 max-w-3xl mx-auto text-wedding-green-dark">
+        <div class="bg-white p-6 rounded-lg shadow-lg border border-wedding-green-accent/30"  aria-labelledby="ceremony-details-heading">
+          <h3 id="ceremony-details-heading" class="font-serif-body text-3xl font-semibold text-wedding-green-header mb-3">Ceremonia</h3>
+          <p class="text-lg"><strong>Fecha:</strong> Sábado, 13 de Septiembre, 2025</p>
+          <p class="text-lg"><strong>Hora:</strong> 19:00 HRS.</p>
+          <p class="text-lg"><strong>Lugar:</strong> Real Círculo de Labradores</p>
+          <p class="text-lg">Calle Juan Sebastián El Cano, 1, Sevilla</p>
+          <img src="images/labradores.jpg" alt="Lugar de la ceremonia, Real Círculo de Labradores" class="mt-4 rounded-md w-full object-cover h-48"/>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg border border-wedding-green-accent/30" aria-labelledby="reception-details-heading">
+          <h3 id="reception-details-heading" class="font-serif-body text-3xl font-semibold text-wedding-green-header mb-3">Recepción</h3>
+          <p class="text-lg">A continuación de la ceremonia.</p>
+          <p class="text-lg"><strong>Lugar:</strong> Mismo lugar, salón interior con vistas al Guadalquivir</p>
+          <p class="text-lg">Únanse a nosotros para una noche de cena cocktail, baile y ganas de pasarlo bien.</p>
+   
+          <img src="images/cocktail.jpg" alt="Salón de la recepción decorado para la fiesta" class="mt-4 rounded-md w-full object-cover h-48"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-green-dark text-wedding-cream fade-in-section" aria-labelledby="gallery-heading">
+    <div class="max-w-4xl w-full">
+      <h2 id="gallery-heading" class="font-script text-5xl md:text-6xl text-wedding-cream mb-10">Nuestros Momentos</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6">
+        <div class="gallery-item-clickable aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105" data-index="0" role="button" tabindex="0" aria-label="Ver imagen 1 en grande">
+          <img src="https://picsum.photos/seed/gallery1/400/400" alt="Momento feliz de Maliqui y Luis 1" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <div class="gallery-item-clickable aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105" data-index="1" role="button" tabindex="0" aria-label="Ver imagen 2 en grande">
+          <img src="https://picsum.photos/seed/gallery2/400/400" alt="Momento feliz de Maliqui y Luis 2" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <div class="gallery-item-clickable aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105" data-index="2" role="button" tabindex="0" aria-label="Ver imagen 3 en grande">
+          <img src="https://picsum.photos/seed/gallery3/400/400" alt="Momento feliz de Maliqui y Luis 3" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <div class="gallery-item-clickable aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105" data-index="3" role="button" tabindex="0" aria-label="Ver imagen 4 en grande">
+          <img src="https://picsum.photos/seed/gallery4/400/400" alt="Momento feliz de Maliqui y Luis 4" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <div class="gallery-item-clickable aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105" data-index="4" role="button" tabindex="0" aria-label="Ver imagen 5 en grande">
+          <img src="https://picsum.photos/seed/gallery5/400/400" alt="Momento feliz de Maliqui y Luis 5" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <div class="gallery-item-clickable aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105" data-index="5" role="button" tabindex="0" aria-label="Ver imagen 6 en grande">
+          <img src="https://picsum.photos/seed/gallery6/400/400" alt="Momento feliz de Maliqui y Luis 6" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <div class="gallery-item-clickable aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105" data-index="6" role="button" tabindex="0" aria-label="Ver imagen 7 en grande">
+          <img src="https://picsum.photos/seed/gallery7/400/400" alt="Momento feliz de Maliqui y Luis 7" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <div class="gallery-item-clickable aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105" data-index="7" role="button" tabindex="0" aria-label="Ver imagen 8 en grande">
+          <img src="https://picsum.photos/seed/gallery8/400/400" alt="Momento feliz de Maliqui y Luis 8" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <div class="gallery-item-clickable aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105" data-index="8" role="button" tabindex="0" aria-label="Ver imagen 9 en grande">
+          <img src="https://picsum.photos/seed/gallery9/400/400" alt="Momento feliz de Maliqui y Luis 9" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- After Almost 14 Years Section (Formerly Accommodation) -->
+  <section id="our-journey-together" class="py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream fade-in-section" aria-labelledby="our-journey-together-heading">
+    <div class="max-w-3xl w-full">
+      <h2 id="our-journey-together-heading" class="font-script text-5xl md:text-6xl text-wedding-green-header mb-8">Después de casi 14 años...<br class="block sm:hidden"> Ya iba siendo hora</h2>
+      <div class="space-y-6 text-lg md:text-xl leading-relaxed text-wedding-green-dark max-w-2xl mx-auto">
+        <p>
+          Parece cosa del destino, ¿verdad? Aunque veníamos de mundos distintos, nuestros caminos convergieron de una forma preciosa, y ahora los recorremos de la mano.
         </p>
         <p>
           Cada paso es una alegría, ya sea riendo con nuestras hijas y nietos, explorando nuevos lugares o simplemente saboreando la vida juntos. La vida, el viaje más maravilloso.
@@ -173,141 +197,56 @@
           Ahora, estamos listos para dar el siguiente paso en nuestro viaje, y no podríamos estar más felices de que sean testigos de nuestro amor y compromiso.
         </p>
       </div>
-      <img src="images/ambos.webp" alt="Maliqui y Luis sonriendo juntos" class="mt-10 mx-auto rounded-lg shadow-xl w-full max-w-md object-cover h-64 md:h-80"/>
-    </div>
-  </section>
-
-  <!-- Event Details Section -->
-  <section id="event-details" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream text-wedding-green-dark" aria-labelledby="event-details-heading">
-    <div class="max-w-3xl w-full">
-      <h2 id="event-details-heading" class="font-script text-5xl md:text-6xl text-wedding-green-header mb-10">Detalles del Evento</h2>
-      <div class="grid md:grid-cols-2 gap-10 max-w-3xl mx-auto text-wedding-green-dark">
-        <div class="bg-white p-6 rounded-lg shadow-lg border border-wedding-green-accent/30 text-left md:text-center">
-          <h3 class="font-serif-body text-3xl font-semibold text-wedding-green-header mb-3">Ceremonia</h3>
-          <p class="text-lg"><strong>Fecha:</strong> Sábado, 13 de Septiembre, 2025</p>
-          <p class="text-lg"><strong>Hora:</strong> 19:00 HRS.</p>
-          <p class="text-lg"><strong>Lugar:</strong> Real Círculo de Labradores</p>
-          <p class="text-lg">Calle Juan Sebastián El Cano, 1, Sevilla</p>
-          <img src="https://picsum.photos/seed/ceremonyplace/400/250" alt="Lugar de la ceremonia - Real Círculo de Labradores" class="mt-4 rounded-md w-full object-cover h-48"/>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-lg border border-wedding-green-accent/30 text-left md:text-center">
-          <h3 class="font-serif-body text-3xl font-semibold text-wedding-green-header mb-3">Recepción</h3>
-          <p class="text-lg">A continuación de la ceremonia.</p>
-          <p class="text-lg"><strong>Lugar:</strong> Mismo lugar, salón adyacente.</p>
-          <p class="text-lg">Únanse a nosotros para una noche de cena, baile y celebración.</p>
-          
-          <img src="https://picsum.photos/seed/receptionparty/400/250" alt="Salón de recepción decorado para la fiesta" class="mt-4 rounded-md w-full object-cover h-48"/>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Section -->
-  <section id="gallery" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-green-dark text-wedding-cream" aria-labelledby="gallery-heading">
-    <div class="max-w-4xl w-full">
-      <h2 id="gallery-heading" class="font-script text-5xl md:text-6xl mb-10">Nuestros Momentos</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 mx-auto">
-        <div class="aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105">
-          <img src="https://picsum.photos/seed/gallery1/400/400" alt="Momento feliz de Maliqui y Luis 1" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-        </div>
-        <div class="aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105">
-          <img src="https://picsum.photos/seed/gallery2/400/400" alt="Momento feliz de Maliqui y Luis 2" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-        </div>
-        <div class="aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105">
-          <img src="https://picsum.photos/seed/gallery3/400/400" alt="Momento feliz de Maliqui y Luis 3" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-        </div>
-        <div class="aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105">
-          <img src="https://picsum.photos/seed/gallery4/400/400" alt="Momento feliz de Maliqui y Luis 4" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-        </div>
-        <div class="aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105">
-          <img src="https://picsum.photos/seed/gallery5/400/400" alt="Momento feliz de Maliqui y Luis 5" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-        </div>
-        <div class="aspect-square overflow-hidden rounded-lg shadow-lg group transition-all duration-300 hover:scale-105">
-          <img src="https://picsum.photos/seed/gallery6/400/400" alt="Momento feliz de Maliqui y Luis 6" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!--14YearsLater Section -->
-  <section id="our-story" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream text-wedding-green-dark" aria-labelledby="event-details-heading">
-    <div class="max-w-3xl w-full">
-      <h2 id="our-story-heading" class="font-script text-2xl md:text-6xl mb-8">Después de casi 14 años...</h2>
-      <h2 id="our-story-heading" class="font-script text-5xl md:text-6xl mb-8">Ya iba siendo hora</h2>
-      <div class="space-y-6 text-lg md:text-xl leading-relaxed text-left max-w-xl mx-auto">
-        <p>
-          No somos unos chavales pero nuestros corazones están llenos de ilusión esperando este día tan especial. 
-        </p>
-        <p>
-          Echaremos mucho de menos a algunas personas muy entrañables que forjaron nuestra forma de ser y nuestros principios y nos transmitieron unos valores esenciales para afrontar la vida.
-        </p>
-        <p>
-          A aquellos que decidáis venir os estaremos siempre agradecidos por sumaros a esta fiesta que pretendemos os resulte amena y divertida.
-        </p>
-      </div>
       <img src="images/ambos-feria.png" alt="Maliqui y Luis en la Feria" class="mt-10 mx-auto rounded-lg shadow-xl w-full max-w-md object-cover h-64 md:h-80"/>
     </div>
   </section>
 
-  <!-- Accommodation Section -->
-  <!--<section id="accommodation" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream text-wedding-green-dark" aria-labelledby="accommodation-heading">
-    <div class="max-w-3xl w-full">
-      <h2 id="accommodation-heading" class="font-script text-5xl md:text-6xl text-wedding-green-header mb-8">Alojamiento</h2>
-      <p class="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-6">
-        Para nuestros invitados que viajan desde fuera, hemos recopilado algunas sugerencias de hoteles cercanos al lugar del evento. Sevilla ofrece una amplia variedad de opciones para todos los gustos y presupuestos.
-      </p>
-      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto text-wedding-green-dark text-left">
-        <div class="bg-white p-4 rounded-lg shadow-md border border-wedding-green-accent/20">
-          <h3 class="text-xl font-semibold text-wedding-green-header mb-1">Hotel Alfonso XIII</h3>
-          <p class="text-sm">Un hotel de lujo con historia, a poca distancia.</p>
-          <a href="#" class="text-wedding-gold hover:underline text-sm block mt-1" target="_blank" rel="noopener noreferrer">Ver disponibilidad</a>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-md border border-wedding-green-accent/20">
-          <h3 class="text-xl font-semibold text-wedding-green-header mb-1">Hotel Colón Gran Meliá</h3>
-          <p class="text-sm">Elegancia y confort en el corazón de Sevilla.</p>
-          <a href="#" class="text-wedding-gold hover:underline text-sm block mt-1" target="_blank" rel="noopener noreferrer">Ver disponibilidad</a>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-md border border-wedding-green-accent/20">
-          <h3 class="text-xl font-semibold text-wedding-green-header mb-1">Hotel Doña María</h3>
-          <p class="text-sm">Vistas espectaculares y encanto tradicional.</p>
-          <a href="#" class="text-wedding-gold hover:underline text-sm block mt-1" target="_blank" rel="noopener noreferrer">Ver disponibilidad</a>
-        </div>
-         <div class="bg-white p-4 rounded-lg shadow-md border border-wedding-green-accent/20">
-          <h3 class="text-xl font-semibold text-wedding-green-header mb-1">Opciones Boutique</h3>
-          <p class="text-sm">Explore encantadores hoteles boutique en el barrio de Santa Cruz.</p>
-          <a href="#" class="text-wedding-gold hover:underline text-sm block mt-1" target="_blank" rel="noopener noreferrer">Buscar en Booking.com</a>
-        </div>
-      </div>
-      <p class="text-md mt-8">Recomendamos reservar con antelación, especialmente si viajan en temporada alta.</p>
-    </div>
-  </section>-->
-
-   <!-- RSVP Section -->
+  <!-- RSVP Section -->
   <section id="rsvp" class="py-16 md:py-24 px-6 md:px-12 min-h-[90vh] flex flex-col items-center justify-center text-center bg-wedding-green-dark text-wedding-cream fade-in-section" aria-labelledby="rsvp-heading">
     <div class="max-w-3xl w-full">
       <h2 id="rsvp-heading" class="font-script text-5xl md:text-6xl text-wedding-cream mb-8">Confirma tu Asistencia</h2>
       <p class="text-lg md:text-xl leading-relaxed max-w-xl mx-auto mb-6">
-        Agradecemos que confirmes tu asistencia antes del <strong>15 de Agosto, 2025</strong> utilizando el siguiente formulario. Tu presencia es el mejor regalo para nosotros.
+        Agradecemos que confirmes tu asistencia antes del <strong>15 de Agosto, 2025</strong>. Tu presencia es el mejor regalo para nosotros.
       </p>
-      <div class="mt-8 mx-auto w-full max-w-2xl bg-wedding-cream p-1 sm:p-2 rounded-lg shadow-xl overflow-hidden">
-        <iframe 
-          src="https://forms.gle/LUMKxsbyZjyQj3aw6?embedded=true" 
-          width="100%" 
-          height="950"  
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0"
-          aria-label="Formulario de confirmación de asistencia"
-          loading="lazy"
-          title="Formulario RSVP">
-          Cargando…
-        </iframe>
+      
+      <!-- Accordion for RSVP Form -->
+      <div class="accordion-item mt-8 mx-auto max-w-2xl border border-wedding-cream/30 rounded-lg shadow-xl overflow-hidden bg-wedding-cream">
+        <button
+          class="accordion-button w-full flex justify-between items-center p-4 md:p-5 text-left text-wedding-green-header hover:bg-wedding-green-dark/10 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-wedding-gold"
+          aria-expanded="false"
+          aria-controls="accordion-content-rsvp"
+        >
+          <span class="text-lg md:text-xl font-semibold font-serif-body">Confirma aquí</span>
+          <svg class="w-5 h-5 transform transition-transform duration-300 text-wedding-green-header" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="accordion-content-rsvp" class="accordion-content">
+          <div class="border-t border-wedding-green-dark/20 text-wedding-green-dark"> 
+            <div class="w-full overflow-hidden"> 
+              <iframe 
+                src="https://forms.gle/LUMKxsbyZjyQj3aw6?embedded=true" 
+                width="100%" 
+                height="950"  
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0"
+                aria-label="Formulario de confirmación de asistencia"
+                loading="lazy"
+                title="Formulario RSVP"
+                style="display: block;">
+                Cargando…
+              </iframe>
+            </div>
+            <p class="p-4 md:p-5 text-base"> 
+              Si tienes alguna restricción alimentaria o necesitas alguna consideración especial, por favor indícalo en el formulario.
+            </p>
+          </div>
+        </div>
       </div>
-      <p class="mt-8 text-lg">
-        Si tienes alguna restricción alimentaria o necesitas alguna consideración especial, por favor indícalo en el formulario.
-      </p>
     </div>
-    
+  </section>
+
   <!-- Info Accordion Section -->
   <section id="info-accordion" class="py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream fade-in-section" aria-labelledby="info-accordion-heading">
     <div class="max-w-2xl w-full">
@@ -327,11 +266,11 @@
           </button>
           <div id="accordion-content-1" class="accordion-content">
             <div class="p-4 md:p-5 border-t border-wedding-green-accent/20 text-wedding-green-dark leading-relaxed">
-              <p>Lo más importante para nosotros es celebrar este día con vosotros. Si además queréis tener un detalle, podéis ayudarnos a hacer realidad nuestra luna de miel</p>
+              <p>Nuestro ajuar ya está completito, así que con vuestras aportaciones disfrutaremos de nuestro viaje de luna de miel. De esa forma contribuiréis a que nuestra ilusión por esta aventura pueda materializarse.</p>
               <p class="mt-2 mb-1">
                 <code class="block text-center font-mono text-lg bg-wedding-green-accent/10 p-2 rounded text-wedding-green-header tracking-wider">ES2120801133813040108418</code>
               </p>
-              <p class="mt-2 center">Muchas gracias</p>
+              <p class="mt-2">Muchas gracias</p>
             </div>
           </div>
         </div>
@@ -381,14 +320,14 @@
             aria-expanded="false"
             aria-controls="accordion-content-4"
           >
-            <span class="text-lg md:text-xl font-semibold font-serif-body">¿Cómo llegar?</span>
+            <span class="text-lg md:text-xl font-semibold font-serif-body">¿Cómo llegar a la fiesta?</span>
             <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
           <div id="accordion-content-4" class="accordion-content">
             <div class="p-4 md:p-5 border-t border-wedding-green-accent/20 text-wedding-green-dark leading-relaxed">
-              <p>Tanto la ceremonia como la celebración son en el <a href="https://maps.app.goo.gl/yKrzHfKyHAEEx3Wp7">mismo lugar.</a> <p>Puedes llegar en taxi/vtc hasta la misma puerta.</p> <p>En metro la parada más cercana es Plaza de Cuba.</p> <p>Si decides venir en vehículo propio lo mejor es utilizar el parking público subterráneo de Plaza de Cuba.</p>
+              <p>Tanto la ceremonia como la celebración son en el mismo lugar. Puedes llegar en taxi, Uber, Cabify, Bolt, etc. pero si decides venir en vehículo propio lo mejor es utilizar el parking público subterráneo de Plaza de Cuba. Abajo tienes la dirección y ubicación completa.</p>
             </div>
           </div>
         </div>
@@ -397,7 +336,7 @@
   </section>
 
   <!-- Final Words Section -->
-  <section id="final-words" class="fade-in-section py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream text-wedding-green-dark" aria-labelledby="final-words-heading">
+  <section id="final-words" class="py-16 md:py-24 px-6 md:px-12 min-h-[70vh] flex flex-col items-center justify-center text-center bg-wedding-cream text-wedding-green-dark fade-in-section" aria-labelledby="final-words-heading">
     <div class="max-w-3xl w-full">
       <h2 id="final-words-heading" class="font-script text-5xl md:text-6xl text-wedding-green-header mb-6">¡Nos Vemos Pronto!</h2>
       <p class="text-lg md:text-xl leading-relaxed max-w-xl mx-auto mb-8">
@@ -416,96 +355,24 @@
     </div>
   </section>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Fade-in sections on scroll
-      const fadeInElements = document.querySelectorAll('.fade-in-section');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      fadeInElements.forEach(el => observer.observe(el));
+  <!-- Gallery Modal HTML -->
+  <div id="gallery-modal" class="gallery-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-image-alt">
+    <div class="gallery-modal-content-wrapper">
+      <img id="modal-image" src="" alt="" />
+      <span id="modal-image-alt" class="sr-only">Imagen ampliada de la galería</span>
+      <button id="modal-close-btn" class="modal-btn modal-close-btn" aria-label="Cerrar galería">
+        <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      </button>
+      <button id="modal-prev-btn" class="modal-btn modal-nav-btn prev" aria-label="Imagen anterior">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+      </button>
+      <button id="modal-next-btn" class="modal-btn modal-nav-btn next" aria-label="Siguiente imagen">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+      </button>
+    </div>
+  </div>
 
-      // Scroll down indicator visibility
-      const scrollIndicator = document.getElementById('scroll-indicator');
-      if (scrollIndicator) {
-        const handleScroll = () => {
-          if (window.scrollY > 100) {
-            scrollIndicator.style.display = 'none';
-          } else {
-            scrollIndicator.style.display = 'flex';
-          }
-        };
-        window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Initial check
-      }
-
-      // Hero section gold speckles
-      const heroSection = document.querySelector('.hero-section-target');
-      if (heroSection) {
-        const numSpeckles = 15;
-        for (let i = 0; i < numSpeckles; i++) {
-          const speckle = document.createElement('div');
-          // Tailwind color 'wedding-gold' is #3CA6A6 (a teal) as per your config.
-          // If you intended a metallic gold, you'd change this in tailwind.config.
-          speckle.className = 'absolute bg-wedding-gold rounded-full z-1';
-          speckle.style.width = `${Math.random() * 3 + 1}px`;
-          speckle.style.height = `${Math.random() * 3 + 1}px`;
-          speckle.style.top = `${Math.random() * 100}%`;
-          speckle.style.left = `${Math.random() * 100}%`;
-          speckle.style.opacity = Math.random() * 0.5 + 0.3;
-          // Ensure speckles are appended to a direct child that doesn't mess with flex layout if hero is flex.
-          // Appending to heroSection itself is fine if it's just a container.
-          // For safety, if heroSection's direct children are specific, consider appending to the overlay or another dedicated container.
-          // Given the current structure, appending to heroSection (which is relative) is okay.
-          heroSection.appendChild(speckle);
-        }
-      }
-      // Accordion Logic
-      const accordionItems = document.querySelectorAll('.accordion-item');
-      let openAccordion = null;
-
-      accordionItems.forEach(item => {
-        const button = item.querySelector('.accordion-button');
-        const content = item.querySelector('.accordion-content');
-        const contentId = content.id;
-
-        button.setAttribute('aria-controls', contentId);
-
-        button.addEventListener('click', () => {
-          const isCurrentlyOpen = button.classList.contains('open');
-
-          // Close previously open accordion if it exists and is not the current one
-          if (openAccordion && openAccordion !== item) {
-            const prevButton = openAccordion.querySelector('.accordion-button');
-            const prevContent = openAccordion.querySelector('.accordion-content');
-            prevButton.classList.remove('open');
-            prevButton.setAttribute('aria-expanded', 'false');
-            prevContent.classList.remove('open');
-          }
-          
-          // Toggle current accordion
-          if (isCurrentlyOpen) {
-            button.classList.remove('open');
-            button.setAttribute('aria-expanded', 'false');
-            content.classList.remove('open');
-            openAccordion = null;
-          } else {
-            button.classList.add('open');
-            button.setAttribute('aria-expanded', 'true');
-            content.classList.add('open');
-            openAccordion = item;
-          }
-        });
-      });
-    
-    });
-  </script>
-
+  <script src="script.js" defer></script>
 <script type="module" src="/index.tsx"></script>
 </body>
 </html>
