@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Great+Vibes&display=swap&family=Grand+Hotel&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script>
     tailwind.config = {
@@ -25,6 +26,7 @@
             'serif-body': ['"Cormorant Garamond"', 'serif'],
             'great-vibes': ['"Great Vibes"', 'cursive'],
             'grand-hotel': ['"Grand Hotel"', 'cursive'],
+            'abril-fatface': ['"Abril Fatface"', 'cursive'],
           },
         }
       }
@@ -57,24 +59,29 @@
       <p class="mt-8 md:mt-10 text-4xl md:text-xl tracking-wider  font-grand-hotel text-4xl md:text-4xl">
         Llega el día ¡Nos Casamos!
       </p>
-      <div class="mt-10 md:mt-12 font-serif-body">
-        <div class="text-2xl md:text-4xl tracking-widest">SEP</div>
-        <div class="flex items-center justify-center space-x-4 md:space-x-8 my-3 md:my-4">
-          <span class="text-base md:text-xl uppercase tracking-wider mr-4 md:mr-0">Sábado</span>
-          <div class="flex-grow h-px bg-wedding-cream opacity-70"></div>
-          <span class="text-6xl md:text-8xl font-bold">13</span>
-          <div class="flex-grow h-px bg-wedding-cream opacity-70"></div>
-          <span class="text-base md:text-3xl  tracking-wider ml-4 md:ml-0">19:00</span>
+      <div class="mt-10 md:mt-12 font-serif-body flex flex-col items-center">
+        <div class="w-full flex flex-col items-center">
+          <div class="flex items-center justify-center w-full max-w-4xl mx-auto mb-2 gap-x-8">
+            <span class="text-xl md:text-3xl uppercase tracking-wider whitespace-nowrap">SAB</span>
+            <div class="relative flex items-center justify-center flex-shrink-0 w-[7rem] h-[7rem] md:w-[11rem] md:h-[11rem]">
+              <div class="absolute left-1/2 top-1/2 w-full h-full border-2 border-white rounded-full opacity-90 -translate-x-1/2 -translate-y-1/2"></div>
+              <div class="absolute left-1/2 top-1/2 w-[85%] h-[85%] border-2 border-white rounded-full opacity-90 -translate-x-1/2 -translate-y-1/2"></div>
+              <span class="relative z-10 font-abril-fatface font-bold text-white flex items-center justify-center w-[80%] h-[80%] mx-auto" style="font-size:clamp(3.5rem,7vw,6.5rem); line-height:1;">13</span>
+            </div>
+            <span class="text-3xl md:text-5xl tracking-wider whitespace-nowrap" style="font-size:144%;">19:00</span>
+          </div>
+          <div class="text-3xl md:text-5xl tracking-widest text-center w-full flex justify-center items-center mt-6">
+            Septiembre 2025
+          </div>
         </div>
-        <div class="text-2xl md:text-3xl tracking-widest">2025</div>
+        <div class="mt-8 md:mt-10 text-base md:text-lg">
+          <p>Calle Juan Sebastián Elcano, 1</p>
+          <p><a href="https://maps.app.goo.gl/yKrzHfKyHAEEx3Wp7" target="_blank">Real Círculo de Labradores</a></p>
+        </div>
+        <!--<div class="mt-8 md:mt-10 text-sm md:text-base tracking-wider">
+          <p>CONFIRMAR ASISTENCIA (VER SECCIÓN RSVP)</p>
+        </div>-->
       </div>
-      <div class="mt-8 md:mt-10 text-base md:text-lg">
-        <p>Calle Juan Sebastián Elcano, 1</p>
-        <p><a href="https://maps.app.goo.gl/yKrzHfKyHAEEx3Wp7" target="_blank">Real Círculo de Labradores</a></p>
-      </div>
-      <!--<div class="mt-8 md:mt-10 text-sm md:text-base tracking-wider">
-        <p>CONFIRMAR ASISTENCIA (VER SECCIÓN RSVP)</p>
-      </div>-->
     </div>
   </section>
 
@@ -295,11 +302,11 @@
           </button>
           <div id="accordion-content-1" class="accordion-content">
             <div class="p-4 md:p-5 border-t border-wedding-green-accent/20 text-wedding-green-dark leading-relaxed">
-              <p>Nuestro ajuar ya está completo :P por lo que ese gesto lo usaremos con muchailusión para hacer realidad nuestra luna de miel.</p>
+              <p>Nuestro ajuar está completito, así que tu gesto lo emplearemos con mucha ilusión para hacer realidad nuestra luna de miel en Tanzania.</p>
               <p class="mt-2 mb-1">
                     <code class="block text-center font-mono text-lg bg-wedding-green-accent/10 p-2 rounded text-wedding-green-header tracking-wider">ES2120801133813040108418</code>
                   </p>
-              <p class="mt-2">Muchas gracias</p>
+              <p class="mt-2">Muchas gracias!</p>
             </div>
           </div>
         </div>
